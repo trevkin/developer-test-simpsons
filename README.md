@@ -21,6 +21,10 @@ The next step is to run `npm install` and then `./node_modules/.bin/gulp`
 
 Start your server with the `public` directory as your document root. If you are using the built in PHP server you can navigate to `public` and run `php -S localhost:8000` to start a server.
 
+#### Windows Users
+IF npm install fails then it is likely due to the following problems. Please install requirements as listed:
+* Missing python - Install python from https://www.python.org/downloads/release/python-2716/
+
 
 ### Notes on Pull Requests
 

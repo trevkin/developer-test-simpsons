@@ -4,8 +4,13 @@
 
 h4 {
     color: $gray-dark;
+    line-height: 1;
 
     small {
-        color: $gray-light;
+        color: $gray-base;
     }
+}
+
+h3 {
+  line-height: 1;
 }

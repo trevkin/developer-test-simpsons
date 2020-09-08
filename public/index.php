@@ -1,5 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
+session_start();
 
 //Load Twig templating environment
 $loader = new Twig_Loader_Filesystem('../templates/');
@@ -18,9 +19,10 @@ try {
 		}
 		return $a['season'] - $b['season'];
 	});
+	$_SESSION["data"] = $data;
 } catch (Exception $e) {
 	$error = 'Sorry, there was an error. Please try again by reloading the page.';
 }
 
 //Render the template
-echo $twig->render('page.html', ["episodes" => $data, "error" => $error]);
+echo $twig->render('page.html', ["episodes" => $_SESSION["data"], "error" => $error]);

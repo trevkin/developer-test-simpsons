@@ -13,7 +13,24 @@
         <p><img class="img-circle" src="resources/img/bobby.jpg"></p>
       </div>
     </div>
+	<div class="container-fluid text-center">
+		<form name="filterform" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+			<div >
+				Filter by season
+			</div>
+			<div >
+				<select id="filter" name="filter">
+					<option value="0">All Seasons</option>
+					{% for season in seasons %}
+					<option value="{{ season }}" {% if filter == season %} selected="selected" {% endif %}>Season {{ season }}</option>
+					{% endfor %}
+				</select>
+			</div>
 
+
+
+		</form>
+	</div>
     <div class="container">
 		{% if error %}
 		<div class="alert alert-danger" role="alert">
@@ -41,9 +58,11 @@
 
   <script type="text/javascript" src="/resources/compiled/js/main.js"></script>
 	<script type="text/javascript">
-		$(function () {
-			$('[data-toggle="popover"]').popover();
-		})
+        $(document).ready(function() {
+            $('#filter').on('change', function() {
+                document.forms['filterform'].submit();
+            });
+        });
 	</script>
 </body>
 </html>
